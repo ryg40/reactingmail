@@ -25,18 +25,18 @@ app.use(passport.session());
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
 
-if (process.env.NODE_ENV === 'production') {
-    //express will serve up prod assets
-    const path = require('path');
-    app.use(express.static(path.join(__dirname, 'client/build')));
+// if (process.env.NODE_ENV === 'production') {
+//     //express will serve up prod assets
 
-    //Express will serve up the index.html 
-    
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(_dirname, 'client', 'build', 'index.html'));
-    });
+//     app.use(express.static('client/build'));
 
-}
+//     //Express will serve up the index.html 
+//         const path = require('path');
+//     app.get('*', (req, res) => {
+//         res.sendFile(path.resolve(_dirname, 'client', 'build', 'index.html'));
+//     });
+
+// };
 
 
 const PORT = process.env.PORT || 5000;
